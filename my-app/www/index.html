@@ -19,7 +19,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html>
+<html ng-app="miApp">
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
@@ -30,6 +30,18 @@
         <title>Hello World</title>
     </head>
     <body>
+        <div ng-controller="Controller">
+            <div><span>{{unTexto}}</span></div>
+           <select ng-model="correctlySelected"
+                ng-options="opt as opt.nombre for opt in paises">
+                <option value="">- Seleccione un País -</option>
+            </select>
+            <select  ng-model="correctlySelectedM" ng-disabled="!correctlySelected" 
+                ng-options="opt as opt.nombre for opt in cds">
+                <option value="">- Seleccione una ciudad -</option>
+            </select>
+            </div>-->
+        </div>    
         <div class="app">
             <h1>PhoneGap</h1>
             <div id="deviceready" class="blink">

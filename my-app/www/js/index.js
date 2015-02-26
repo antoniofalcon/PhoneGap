@@ -26,7 +26,9 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
+         document.addEventListener('deviceready', function onDeviceReady() {
+            angular.bootstrap(document, ['miApp']);
+        }, false);
     },
     // deviceready Event Handler
     //
@@ -47,3 +49,61 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+var miapp = angular.module('miApp', []).controller(
+    'Controller',
+    ['$scope', function ($scope) {
+        'use strict';
+        $scope.mandar = function () {
+            //alert($scope.nombre);
+           
+                $scope.paises.push({
+                nombre: $scope.nombre,
+                val: $scope.val
+                });
+                $scope.nombre = "";
+                $scope.val = "";         
+        };
+        
+        $scope.paises = [
+            {
+                nombre: 'USA',
+                value: 1
+            },
+            {
+                nombre: 'Mexico',
+                value: 2
+            }
+        ];
+        $scope.Mexico = [
+            {
+                nombre: 'Hermosillo',
+                value: 1
+            },
+            {
+                nombre: 'Guaymas',
+                value: 2
+            }
+        ];
+        $scope.USA = [
+            {
+                nombre: 'LA',
+                value: 1
+            },
+            {
+                nombre: 'San Diego',
+                value: 2
+            }
+        ];
+        $scope.cds = [];
+        $scope.$watch('correctlySelected', function() {
+            if($scope.correctlySelected.nombre=="USA"){
+               $scope.cds = $scope.USA; 
+            };
+
+            if($scope.correctlySelected.nombre=="Mexico"){
+               $scope.cds = $scope.Mexico; 
+            };
+        });
+    }]
+);
