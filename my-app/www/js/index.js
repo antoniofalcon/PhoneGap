@@ -34,7 +34,8 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        angular.bootstrap(document, ['miApp']);
+       this.receivedEvent('deviceready');
+       angular.bootstrap(document, ['miApp']);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -48,7 +49,7 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
-angular.module('miApp', []).controller(
+miApp = angular.module('miApp', []).controller(
     'Controller',
     ['$scope', function ($scope) {
         'use strict';
