@@ -50,7 +50,7 @@ var app = {
     }
 };
 
-var miapp = angular.module('miApp', []).controller(
+var miApp = angular.module('miApp', []).controller(
     'Controller',
     ['$scope', function ($scope) {
         'use strict';
