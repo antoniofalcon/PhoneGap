@@ -27,15 +27,13 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-         
     },
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-       this.receivedEvent('deviceready');
-       angular.bootstrap(document, ['miApp']);
+        app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -49,60 +47,3 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
-miApp = angular.module('miApp', []).controller(
-    'Controller',
-    ['$scope', function ($scope) {
-        'use strict';
-        $scope.mandar = function () {
-            //alert($scope.nombre);
-           
-                $scope.paises.push({
-                nombre: $scope.nombre,
-                val: $scope.val
-                });
-                $scope.nombre = "";
-                $scope.val = "";         
-        };
-        
-        $scope.paises = [
-            {
-                nombre: 'USA',
-                value: 1
-            },
-            {
-                nombre: 'Mexico',
-                value: 2
-            }
-        ];
-        $scope.Mexico = [
-            {
-                nombre: 'Hermosillo',
-                value: 1
-            },
-            {
-                nombre: 'Guaymas',
-                value: 2
-            }
-        ];
-        $scope.USA = [
-            {
-                nombre: 'LA',
-                value: 1
-            },
-            {
-                nombre: 'San Diego',
-                value: 2
-            }
-        ];
-        $scope.cds = [];
-        $scope.$watch('correctlySelected', function() {
-            if($scope.correctlySelected.nombre=="USA"){
-               $scope.cds = $scope.USA; 
-            };
-
-            if($scope.correctlySelected.nombre=="Mexico"){
-               $scope.cds = $scope.Mexico; 
-            };
-        });
-    }]
-);
