@@ -21,7 +21,8 @@
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
-
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
 
     <script>
 // Ionic Starter App
@@ -55,40 +56,37 @@ angular.module('app', ['ionic'])
   // Each state's controller can be found in controllers.js
   $stateProvider
     
-    .state('page3', {
-      url: '/page3',
-      templateUrl: 'page3.html'
+     .state('tournament', {
+      url: '/tournament',
+      templateUrl: 'tournament.html'
+    })
+
+     .state('competitor', {
+      url: '/competitor',
+      templateUrl: 'competitor.html'
     })
     
-    .state('page4', {
-      url: '/page2',
-      templateUrl: 'page4.html'
+    .state('belt', {
+      url: '/belt',
+      templateUrl: 'belt.html'
     })
     
-    .state('page5', {
-      url: '/page4',
-      templateUrl: 'page5.html'
+    .state('category', {
+      url: '/category',
+      templateUrl: 'category.html'
+    })
+      
+    .state('category-detail', {
+      url: '/category-detail',
+      templateUrl: 'category-detail.html'
     })
     
-    .state('page9', {
-      url: '',
-      templateUrl: 'page9.html'
-    })
     
-    .state('page10', {
-      url: '/page5',
-      templateUrl: 'page10.html'
-    })
-    
-    .state('page12', {
-      url: '/page6',
-      templateUrl: 'page12.html'
-    })
     ;
 
   // if none of the above states are matched, use this as the fallback
   
-  $urlRouterProvider.otherwise('/page3');
+  $urlRouterProvider.otherwise('/tournament');
   
 
 });
@@ -100,91 +98,13 @@ angular.module('app', ['ionic'])
   <div>
     <div>
         <ion-nav-bar class="bar-stable">
-            <ion-nav-back-button class="button-icon icon ion-ios7-arrow-back">Back</ion-nav-back-button>
+            <ion-nav-back-button class="button-icon icon ion-ios-arrow-back">Back</ion-nav-back-button>
         </ion-nav-bar>
         <ion-nav-view></ion-nav-view>
     </div>
 </div>
-<script id="page3.html" type="text/ng-template">
-<ion-view title="Belt">
-    <ion-content padding="true" class="has-header">
-        <form>
-            <ion-toggle toggle-class="toggle-dark" ng-model="check">Black?</ion-toggle>
-            <div class="spacer" style="width: 300px; height: 10.9826393127441px;"></div>
-            <h5>Select your Belt</h5>
-            <div ng-hide="check">
-            <ion-radio>White</ion-radio>
-            <ion-radio>Yellow</ion-radio>
-            <ion-radio>Orange</ion-radio>
-            <ion-radio>Purple</ion-radio>
-            <ion-radio>Blue</ion-radio>
-            <ion-radio>Green</ion-radio>
-            <ion-radio>Brown</ion-radio>
-            <ion-radio>Red</ion-radio>
-            </div>
-            <div ng-show="check">
-            <ion-radio>1st Dan</ion-radio>
-            <ion-radio>2nd Dan</ion-radio>
-            <ion-radio>3rd Dan</ion-radio>
-            <ion-radio>4th Dan</ion-radio>
-            <ion-radio>5th Dan</ion-radio>
-            <ion-radio>7th Dan</ion-radio>
-            <ion-radio>8th Dan</ion-radio>
-            <ion-radio>9th Dan</ion-radio>
-            <ion-radio>10th Dan</ion-radio>
-            </div>
-        </form>
-        <a href="#/page5" class="button button-calm button-block">Done</a>
-    </ion-content>
-</ion-view></script>
-<script id="page4.html" type="text/ng-template">
-<ion-view title="Competitor">
-    <ion-content padding="true" class="has-header">
-        <h3></h3>
-        <form>
-            <label class="item item-select">
-                <span class="input-label">Choose your Acamedy</span>
-                <select><option>Covarrubias Karate</option><option>Ipmao Karate</option></select>
-            </label>
-            <div class="spacer" style="width: 300px; height: 12.9861116409302px;"></div>
-            <label class="item item-input">
-                <span class="input-label">Name</span>
-                <input type="text" placeholder="Enter your Name">
-            </label>
-            <div class="spacer" style="width: 300px; height: 11.0000076293945px;"></div>
-            <label class="item item-input">
-                <span class="input-label">Age</span>
-                <input type="number" placeholder="Enter your Age">
-            </label>
-            <div class="spacer" style="width: 300px; height: 13px;"></div>
-            <label class="item item-input">
-                <span class="input-label">Phone</span>
-                <input type="tel" placeholder="Enter yur Phone">
-            </label>
-        </form>
-        <a href="#/page3" class="button button-calm button-block">Done</a>
-    </ion-content>
-</ion-view></script>
-<script id="page5.html" type="text/ng-template">
-<ion-view title="Belt">
-    <ion-content padding="true" class="has-header">
-        <form>
-            <ion-toggle toggle-class="toggle-dark">Black?</ion-toggle>
-            <div class="spacer" style="width: 300px; height: 10.9861116409302px;"></div>
-            <ion-radio>1st Dan</ion-radio>
-            <ion-radio>2nd Dan</ion-radio>
-            <ion-radio>3rd Dan</ion-radio>
-            <ion-radio>4th Dan</ion-radio>
-            <ion-radio>5th Dan</ion-radio>
-            <ion-radio>7th Dan</ion-radio>
-            <ion-radio>8th Dan</ion-radio>
-            <ion-radio>9th Dan</ion-radio>
-            <ion-radio>10th Dan</ion-radio>
-        </form>
-        <a href="#/page5" class="button button-calm button-block">Done</a>
-    </ion-content>
-</ion-view></script>
-<script id="page9.html" type="text/ng-template">
+<!--tournaments-->
+<script id="tournament.html" type="text/ng-template">
 <ion-view title="Tournaments">
     <ion-content padding="true" class="has-header">
         <form>
@@ -207,30 +127,101 @@ angular.module('app', ['ionic'])
             <h4>Price</h4>
             <p></p>
         </div>
-        <div style="line-height: 250px; border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; background-color: rgb(255, 255, 255);">
-            <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
+        <div style="border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; background-color: rgb(255, 255, 255);">
+            <img src="http://static.android.es/wp-content/uploads/2012/06/Google-Maps.gif" style="width:100%;"></img>
         </div>
-        <a href="#/login" class="button button-calm button-block">Done</a>
+        <a href="#/competitor" class="button button-calm button-block">Done</a>
     </ion-content>
-</ion-view></script>
-<script id="page10.html" type="text/ng-template">
+</ion-view>
+</script>
+
+<!--competitors-->
+<script id="competitor.html" type="text/ng-template">
+<ion-view title="Competitor">
+    <ion-content padding="true" class="has-header">
+        <h3></h3>
+        <form>
+            <label class="item item-select">
+                <span class="input-label">Choose your Acamedy</span>
+                <select></select>
+            </label>
+            <div class="spacer" style="width: 300px; height: 12.9861116409302px;"></div>
+            <label class="item item-input">
+                <span class="input-label">Name</span>
+                <input type="text" placeholder="Enter your Name">
+            </label>
+            <div class="spacer" style="width: 300px; height: 11.0000076293945px;"></div>
+            <label class="item item-input">
+                <span class="input-label">Age</span>
+                <input type="number" placeholder="Enter your Age">
+            </label>
+            <div class="spacer" style="width: 300px; height: 13px;"></div>
+            <label class="item item-input">
+                <span class="input-label">Phone</span>
+                <input type="tel" placeholder="Enter yur Phone">
+            </label>
+        </form>
+        <a href="#/belt" class="button button-calm button-block">Done</a>
+    </ion-content>
+</ion-view>
+</script>
+
+<!--belts-->
+<script id="belt.html" type="text/ng-template">
+<ion-view title="Belt">
+    <ion-content padding="true" class="has-header">
+        <form>
+            <ion-toggle toggle-class="toggle-dark" ng-model="check">Black?</ion-toggle>
+            <div class="spacer" style="width: 300px; height: 10.9826393127441px;"></div>
+            <h5>Select your Belt</h5>
+            <div ng-hide="check">
+            <ion-radio>White</ion-radio>
+            <ion-radio>Yellow</ion-radio>
+            <ion-radio>Orange</ion-radio>
+            <ion-radio>Purple</ion-radio>
+            <ion-radio>Blue</ion-radio>
+            <ion-radio>Green</ion-radio>
+            <ion-radio>Brown</ion-radio>
+            <ion-radio>Red</ion-radio>
+            </div>
+            <div ng-hide="!check">
+            <ion-radio>1st Dan</ion-radio>
+            <ion-radio>2nd Dan</ion-radio>
+            <ion-radio>3rd Dan</ion-radio>
+            <ion-radio>4th Dan</ion-radio>
+            <ion-radio>5th Dan</ion-radio>
+            <ion-radio>7th Dan</ion-radio>
+            <ion-radio>8th Dan</ion-radio>
+            <ion-radio>9th Dan</ion-radio>
+            <ion-radio>10th Dan</ion-radio>
+            </div>
+        </form>
+        <a href="#/category" class="button button-calm button-block">Done</a>
+    </ion-content>
+</ion-view>
+</script>
+
+<!--categories-->
+<script id="category.html" type="text/ng-template">
 <ion-view title="Categories">
     <ion-content padding="true" class="has-header">
         <h1>Competitor</h1>
         <h5>Age</h5>
         <ion-list>
             <ion-item class="item-divider">Fight</ion-item>
-            <ion-item href="#/page6">P1</ion-item>
-            <ion-item>C1</ion-item>
-            <ion-item class="item-divider">Forms</ion-item>
-            <ion-item>TF1</ion-item>
-            <ion-item>CF1</ion-item>
-            <ion-item>FF1</ion-item>
+            <ion-item href="#/category-detail">P1</ion-item>
+            <ion-item href="#/category-detail">C1</ion-item>
+            <ion-item class="item-divider">Form</ion-item>
+            <ion-item href="#/category-detail">TF1</ion-item>
+            <ion-item href="#/category-detail">CF1</ion-item>
+            <ion-item href="#/category-detail">FF1</ion-item>
         </ion-list>
-        <button class="button button-calm button-block">Print</button>
     </ion-content>
-</ion-view></script>
-<script id="page12.html" type="text/ng-template">
+</ion-view>
+</script>
+
+<!--Detail of categories-->
+<script id="category-detail.html" type="text/ng-template">
 <ion-view title="Category">
     <ion-content padding="true" class="has-header">
         <h1>Category Name</h1>
@@ -241,8 +232,8 @@ angular.module('app', ['ionic'])
         <h3>Belts</h3>
         <div class="spacer" style="width: 300px; height: 0.00000762939453125px;"></div>
         <div class="spacer" style="width: 300px; height: 72.9826431274414px;"></div>
-        <button class="button button-calm button-block">Back</button>
     </ion-content>
-</ion-view></script>
+</ion-view>
+</script>
   </body>
 </html>

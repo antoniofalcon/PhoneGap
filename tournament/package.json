@@ -1,7 +1,7 @@
 {
-  "name": "tournaments",
+  "name": "tournament",
   "version": "1.0.0",
-  "description": "tournaments: An Ionic project",
+  "description": "tournament: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",
