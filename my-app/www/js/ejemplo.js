@@ -1,1 +1,0 @@
-var phonegap = require('phonegap');
